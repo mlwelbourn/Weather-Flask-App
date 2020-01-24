@@ -2,8 +2,8 @@ import datetime
 from peewee import *
 from flask_login import UserMixin
 
-DATABASE = SqliteDatabase('weather.sqlite')
-# DATABASE = PostgresqlDatabase('weather_app')
+# DATABASE = SqliteDatabase('weather.sqlite')
+DATABASE = PostgresqlDatabase('weather_app')
 
 class User(UserMixin, Model):
     username = CharField(unique = True)

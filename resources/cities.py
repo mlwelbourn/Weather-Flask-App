@@ -1,4 +1,4 @@
-from flask import Bluepring, jsonify, request
+from flask import Blueprint, jsonify, request
 from playhouse.shortcuts import model_to_dict
 from flask_login import current_user, login_required
 
@@ -17,10 +17,10 @@ def get_all_cities():
             city['owner'].pop('password')
         return jsonify(data=cities, status={"code": 200, "message": "Success"})
     except models.DoesNotExist:
-        return jsonify(data={}, status{"code": 400, "message": "Error getting the resources"})
+        return jsonify(data={}, status={"code": 400, "message": "Error getting the resources"})
 
 #Create Route
-@cities.router('/', methods=["POST"])
+@cities.route('/', methods=["POST"])
 @login_required
 def create_city():
     try:
