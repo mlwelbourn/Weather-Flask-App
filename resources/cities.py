@@ -11,7 +11,7 @@ cities = Blueprint('cities', 'cities')
 @login_required
 def get_all_cities():
     try:
-        cities = [model_to_dict(city) for city in models.City.select().where(models.City.Owner_id == current_user.id)]
+        cities = [model_to_dict(city) for city in models.City.select().where(models.City.owner_id == current_user.id)]
         print(cities)
         for city in cities:
             city['owner'].pop('password')
@@ -39,9 +39,9 @@ def create_city():
 @cities.route('/<id>', methods=["GET"])
 def get_one_city(id):
     try:
-        dog = models.City.get_by_id(id)
-        print(city)
-        dog_dict = model_to_dict(city)
+        city = models.City.get_by_id(id)
+        # print(city)
+        city_dict = model_to_dict(city)
         return jsonify(data = city_dict, status={"code": 200, "message": f"Found dog with id {city.id}"})
     except models.DoesNotExist:
         return jsonify(data={}, status={"code": 400, "message": "Error getting resource"})
