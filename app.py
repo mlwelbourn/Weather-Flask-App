@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, g
 from flask_login import LoginManager
 from flask_cors import CORS
+import os
 app = Flask(__name__)
 app.secret_key = 'thissecret'
 login_manager = LoginManager()
@@ -52,6 +53,9 @@ def index():
 
 DEBUG = True
 PORT = 8000
+if 'ON_HEROKU' in os.environ:
+    print('hitting ')
+    models.initialize()
 if __name__ == '__main__':
     models.initialize()
     app.run(debug=DEBUG, port=PORT)
