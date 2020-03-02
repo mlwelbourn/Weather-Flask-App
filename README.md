@@ -1,4 +1,6 @@
-# Welcome to the Nope-ler Weather Tracker, utilizing React.js UI library and Flask WSGI server. 
+# Welcome to the Carpe Diem Weather Tracker, utilizing React.js UI library and Flask WSGI server. 
+
+Deployed live at https://carpe-diem-weather-react.herokuapp.com/
 
 # Setup:
 1. Verify if your system is able to run Postgres. If so, continue to step 2. Otherwise, on line 5 of models.py, comment out the line reading " DATABASE = PostgresqlDatabase('weather_app') ", and directly above or below this line add:  " DATABASE = SqliteDatabase('weather.sqlite') "
